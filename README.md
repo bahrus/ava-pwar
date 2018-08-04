@@ -9,12 +9,13 @@ Web component that generates markup from manifest
     <div>
       <!-- Polyfills needed for red(ge)tro browsers -->
       <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-      <script type="module" src="https://unpkg.com/ava-pwar.js@0.0.1/ava-pwar.js?module"></script>
+      <script type="module" src="https://unpkg.com/ava-pwar@0.0.1/ava-pwar.js?module"></script>
       <script type="module" src="https://unpkg.com/wired-button@0.7.0/wired-button.js?module"></script>
       <script type="module" src="https://unpkg.com/wired-input@0.6.6/wired-input.js?module"></script>
       <script type="module" src="https://unpkg.com/p-d.p-u@0.0.61/p-d-x.js?module"></script>
       <h3>Basic ava-pwar demo</h3>
-      <wired-input placeholder="Enter PWA url" value="https://www.webcomponents.org/"></wired-input>
+      <label for="pwaurl">Enter PWA URL (end with slash):</label>
+      <wired-input id="pwaurl" placeholder="Enter PWA url" value="https://www.webcomponents.org/"></wired-input>
       <p-d on="input" to="{input}"></p-d>
       <wired-button>Get PWA Manifest</wired-button>
       <p-d on="click" if="wired-button" to="{href:target.input}"></p-d>
