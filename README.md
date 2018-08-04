@@ -13,18 +13,18 @@ Web component that generates markup from manifest
       <script type="module" src="https://unpkg.com/wired-button@0.7.0/wired-button.js?module"></script>
       <script type="module" src="https://unpkg.com/wired-input@0.6.6/wired-input.js?module"></script>
       <script type="module" src="https://unpkg.com/p-d.p-u@0.0.61/p-d-x.js?module"></script>
+      <script type="module" src="https://unpkg.com/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
       <h3>Basic ava-pwar demo</h3>
       <label for="pwaurl">Enter PWA URL (end with slash):</label>
       <wired-input id="pwaurl" placeholder="Enter PWA url" value="https://www.webcomponents.org/"></wired-input>
       <p-d on="input" to="{input}"></p-d>
-      <wired-button>Get PWA Manifest</wired-button>
+      <wired-button>Fetch</wired-button>
       <p-d on="click" if="wired-button" to="{href:target.input}"></p-d>
       <ava-pwar></ava-pwar>
       <p-d on="manifest-changed" to="{input}"></p-d>
       <xtal-json-editor options="{}" height="300px"></xtal-json-editor>
 
-      <script type="module" src="https://unpkg.com/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
-      <script type="module" src="https://unpkg.com/p-d.p-u@0.0.61/p-d-x.js?module"></script>
+      
     </div>
   </template>
 </custom-element-demo>
