@@ -17,6 +17,7 @@ export class AvaPwar extends CorsAnywhere{
 
             fetch(this.calculateURL() +  lastPath).then(resp =>{
                 resp.json().then(json =>{
+                    console.log(json);
                     this.dumpJsonObj((<any>this) as HTMLElement, json)
                 })
             })
@@ -32,14 +33,29 @@ export class AvaPwar extends CorsAnywhere{
                 break;
             case 'object':
                 if(Array.isArray(obj)){
-
+                    obj.forEach(item =>{
+                        this.dumpJsonObj(parentEl, item);
+                    })
                 }else{
                     for(let key in obj){
-                        const div = document.createElement('div');
-                        div.className = 'key';
-                        const val = obj[key];
-                        this.dumpJsonObj(div, val);
-                        parentEl.appendChild(div);
+                        switch(key){
+                            case 'background_color':
+                                parentEl.style.backgroundColor = obj[key];
+                                break;
+                            case 'src':
+                                const img = document.createElement('img');
+                                img.src = this._href + obj[key];
+                                parentEl.appendChild(img);
+                                break;
+                                
+                            default:
+                                const div = document.createElement('div');
+                                div.className = key;
+                                const val = obj[key];
+                                this.dumpJsonObj(div, val);
+                                parentEl.appendChild(div);
+                        }
+                        
                     }
                 }
         }
