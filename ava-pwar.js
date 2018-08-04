@@ -16,48 +16,20 @@ export class AvaPwar extends CorsAnywhere {
             const lastPath = manifestLink.href.split('/').pop();
             fetch(this.calculateURL() + lastPath).then(resp => {
                 resp.json().then(json => {
-                    console.log(json);
-                    this.dumpJsonObj(this, json);
+                    json.url = this._href;
+                    this.manifest = json;
                 });
             });
         });
     }
-    dumpJsonObj(parentEl, obj) {
-        if (!obj)
-            return;
-        switch (typeof (obj)) {
-            case 'string':
-            case 'number':
-                parentEl.innerText = obj;
-                break;
-            case 'object':
-                if (Array.isArray(obj)) {
-                    obj.forEach(item => {
-                        this.dumpJsonObj(parentEl, item);
-                    });
-                }
-                else {
-                    for (let key in obj) {
-                        switch (key) {
-                            case 'background_color':
-                                parentEl.style.backgroundColor = obj[key];
-                                break;
-                            case 'src':
-                                const img = document.createElement('img');
-                                img.src = this._href + obj[key];
-                                parentEl.appendChild(img);
-                                break;
-                            default:
-                                const div = document.createElement('div');
-                                div.className = key;
-                                const val = obj[key];
-                                this.dumpJsonObj(div, val);
-                                parentEl.appendChild(div);
-                        }
-                    }
-                }
-        }
-        //switch
+    get manifest() {
+        return this._manifest;
+    }
+    set manifest(val) {
+        this._manifest = val;
+        this.de('manifest', {
+            value: val,
+        });
     }
 }
 customElements.define(AvaPwar.is, AvaPwar);
