@@ -7,8 +7,6 @@ Web component that generates markup from manifest
 <custom-element-demo>
   <template>
       <div style="width:600px;height:660px;">
-          
-          
           <h3>Basic ava-pwar demo</h3>
           <label for="pwaurl">Enter PWA URL (end with slash):</label>
           <wired-input id="pwaurl" placeholder="Enter PWA url" value="https://www.webcomponents.org/"></wired-input>
@@ -18,16 +16,17 @@ Web component that generates markup from manifest
           <ava-pwar></ava-pwar>
           <p-d on="manifest-changed" to="xtal-json-editor{input};create-some-view-of-pwa-manifest-action{input}"></p-d>
           <script type="module">
-            import {PDQ} from 'https://unpkg.com/p-d.p-u@0.0.61/PDQ.js?module';
+            import {PDQ} from 'https://unpkg.com/p-d.p-u@0.0.62/PDQ.js?module';
+            const $ = PDQ.$; // strips html tags
             PDQ.define('create-some-view-of-pwa-manifest-action', input => {
               if(!input) return 'Click Fetch Button to see PWA info';
-              return `
+              return /* html */`
                 <div class="iconLabel">Icon:</div>
                 <div class="icon"><img src="${input.icons? input.url + input.icons[0].src : 'https://i.4pcdn.org/s4s/1510444672885s.jpg'}"/></div>
                 <div class="nameLabel">Name:</div>
-                <div class="name">${input.name}</div>
+                <div class="name">${$(input.name)}</div>
                 <div class="shortNameLabel">Short Name:</div>
-                <div class="shortName">${input.short_name}</div>
+                <div class="shortName">${$(input.short_name)}</div>
               `;
 
             });
