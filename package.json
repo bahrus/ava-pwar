@@ -1,6 +1,6 @@
 {
   "name": "ava-pwar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Web component that generates markup from manifest",
   "main": "ava-pwar.js",
   "repository": "https://github.com/bahrus/ava-pwar",
