@@ -29,7 +29,7 @@
           <script type="module">
             import {PDQ} from 'https://unpkg.com/p-d.p-u@0.0.61/PDQ.js?module';
             PDQ.define('create-some-view-of-pwa-manifest-action', input => {
-              if(!input) return 'Click Fetch Button to see FWA info';
+              if(!input) return 'Click Fetch Button to see PWA info';
               return `
                 <div class="iconLabel">Icon:</div>
                 <div class="icon"><img src="${input.icons? input.url + input.icons[0].src : 'https://i.4pcdn.org/s4s/1510444672885s.jpg'}"/></div>
