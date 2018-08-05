@@ -1,22 +1,42 @@
 import { CorsAnywhere } from './cors-anywhere.js';
 
-export class AvaPwar extends CorsAnywhere{
-    static get is(){return 'ava-pwar';}
-    onPropsChange(){
-        if(!this._connected || !this._href || this.disabled || !this._serviceUrl) return;
+/**
+ * `ava-pwar`
+ *  Web component wrapper around billboard.js charting library
+ *
+ * @customElement
+ * @polymer
+ * @demo demo/index.html
+ */
+export class AvaPwar extends CorsAnywhere {
+    static get is() { return 'ava-pwar'; }
+    onPropsChange() {
+        if (!this._connected || !this._href || this.disabled || !this._serviceUrl) return;
         this.doFetch();
     }
-    processResponse(resp: Response){
-        resp.text().then(content =>{
+    processResponse(resp: Response) {
+        resp.text().then(content => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(content, "text/html");
-            const manifestLink = htmlDoc.querySelector('link[rel="manifest"]')as HTMLLinkElement;
-            
-            if(!manifestLink || !manifestLink.href) return;
-            const lastPath = manifestLink.href.split('/').pop();
+            const manifestLink = htmlDoc.querySelector('link[rel="manifest"]') as HTMLLinkElement;
 
-            fetch(this.calculateURL() +  lastPath).then(resp =>{
-                resp.json().then(json =>{
+            if (!manifestLink || !manifestLink.href) return;
+
+            const path = location.href.split('/').slice(0, -1).join('/');
+
+            //const lastPath = manifestLink.href.split('/').pop();
+            let manifestURL = manifestLink.href.replace(path, this.calculateURL());
+            manifestURL = manifestURL.replace(location.origin + '/', this.calculateURL());
+            // console.log({
+            //     manifesLinkhref: manifestLink.href,
+            //     location_origin: location.origin,
+            //     path: path,
+            //     url: this.calculateURL(),
+            //     manifestURL: manifestURL,
+            // })
+            // console.log(manifestURL);
+            fetch(manifestURL).then(resp => {
+                resp.json().then(json => {
                     json.url = this._href;
                     this.manifest = json;
                 })
@@ -24,11 +44,11 @@ export class AvaPwar extends CorsAnywhere{
         })
     }
 
-    _manifest: object;
-    get manifest(){
+    _manifest: any; //TODO:  create typing for manifest?
+    get manifest() {
         return this._manifest;
     }
-    set manifest(val){
+    set manifest(val) {
         this._manifest = val;
         this.de('manifest', {
             value: val,
