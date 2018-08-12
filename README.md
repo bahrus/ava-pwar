@@ -8,7 +8,34 @@ Web component that generates markup from manifest
   <template>
   <div style="width:600px;height:1400px;">
 
+  
+    <h3>ava-pwar-simple - One possible View of a PWA Manifest</h3>
 
+    <ava-pwar-simple href="https://www.polymer-project.org/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://mobile.twitter.com/"></ava-pwar-simple> 
+    
+    <ava-pwar-simple href="https://www.cnet.com/"></ava-pwar-simple>
+    
+    <ava-pwar-simple href="https://slate.com/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://app.destinyitemmanager.com/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://www.metalroofing.com/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://www.facturaelectronicagfa.mx/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://volcano1.net/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://www.tailorman.com/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://preactjs.com/"></ava-pwar-simple>
+
+
+
+    
+
+<hr>
     <h3>Minimal PWA Avator support -- build your own UI</h3>
     <label for="pwaurl">Enter PWA URL (end with slash):</label>
     <wired-input id="pwaurl" placeholder="Enter PWA url" value="https://www.webcomponents.org/"></wired-input>
@@ -35,6 +62,12 @@ Web component that generates markup from manifest
 
       });
     </script>
+    <create-some-view-of-pwa-manifest-action></create-some-view-of-pwa-manifest-action>
+    <p-d on="value-changed" to="{innerHTML}"></p-d>
+    <div></div>
+    <xtal-json-editor options="{}" height="300px"></xtal-json-editor>
+
+
     <style>
       .name,
       .shortName {
@@ -71,34 +104,10 @@ Web component that generates markup from manifest
         margin-top:10px;
       }
     </style>
-    <create-some-view-of-pwa-manifest-action></create-some-view-of-pwa-manifest-action>
-    <p-d on="value-changed" to="{innerHTML}"></p-d>
-    <div>
-    </div>
-
-    <xtal-json-editor options="{}" height="300px"></xtal-json-editor>
-
-    <h3>More Examples with Simple UI</h3>
-
-    
-
-    <ava-pwar-simple href="https://app.destinyitemmanager.com/"></ava-pwar-simple>
-
-    <ava-pwar-simple href="https://www.metalroofing.com/"></ava-pwar-simple>
-
-    <ava-pwar-simple href="https://www.facturaelectronicagfa.mx/"></ava-pwar-simple>
-
-    <ava-pwar-simple href="https://volcano1.net/"></ava-pwar-simple>
-
-    <ava-pwar-simple href="https://www.tailorman.com/"></ava-pwar-simple>
-
-    <ava-pwar-simple href="https://preactjs.com/"></ava-pwar-simple>
-
     <!-- Polyfills needed for red(ge)tro browsers -->
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <!-- End Edge Dependency (sigh) -->
-    <script type="module" src="https://unpkg.com/ava-pwar@0.0.7/ava-pwar-simple.js?module"></script>
-    <!-- <script type="module" src="../ava-pwar-simple.js"></script> -->
+    <script type="module" src="https://unpkg.com/ava-pwar@0.0.8/ava-pwar-simple.js?module"></script>
     <script type="module" src="https://unpkg.com/wired-button@0.7.0/wired-button.js?module"></script>
     <script type="module" src="https://unpkg.com/wired-input@0.6.6/wired-input.js?module"></script>
     <script type="module" src="https://unpkg.com/p-d.p-u@0.0.61/p-d-x.js?module"></script>

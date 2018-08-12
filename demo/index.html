@@ -21,31 +21,7 @@
 
 
     <h3>Minimal PWA Avator support -- build your own UI</h3>
-    <label for="pwaurl">Enter PWA URL (end with slash):</label>
-    <wired-input id="pwaurl" placeholder="Enter PWA url" value="https://www.webcomponents.org/"></wired-input>
-    <p-d on="input" to="{input}"></p-d>
-    <wired-button>Fetch</wired-button>
-    <p-d on="click" if="wired-button" to="{href:target.input}"></p-d>
-    <ava-pwar></ava-pwar>
-    <p-d on="manifest-changed" to="xtal-json-editor{input};create-some-view-of-pwa-manifest-action{input}"></p-d>
-    <script type="module">
-      import { PDQ } from 'https://unpkg.com/p-d.p-u@0.0.62/PDQ.js?module';
-      const $ = PDQ.$; // strips html tags
-      PDQ.define('create-some-view-of-pwa-manifest-action', input => {
-        if (!input) return 'Click Fetch Button to see PWA info';
-        return /* html */`
-              <div class="simple">
-                <div class="iconLabel">Icon:</div>
-                <div class="icon"><img src="${input.icons ? input.url + input.icons[0].src : 'https://i.4pcdn.org/s4s/1510444672885s.jpg'}"/></div>
-                <div class="nameLabel">Name:</div>
-                <div class="name">${$(input.name)}</div>
-                <div class="shortNameLabel">Short Name:</div>
-                <div class="shortName">${$(input.short_name)}</div>
-              </div>
-              `;
-
-      });
-    </script>
+    
     <style>
       .name,
       .shortName {
@@ -104,6 +80,32 @@
     <ava-pwar-simple href="https://www.tailorman.com/"></ava-pwar-simple>
 
     <ava-pwar-simple href="https://preactjs.com/"></ava-pwar-simple>
+
+    <label for="pwaurl">Enter PWA URL (end with slash):</label>
+    <wired-input id="pwaurl" placeholder="Enter PWA url" value="https://www.webcomponents.org/"></wired-input>
+    <p-d on="input" to="{input}"></p-d>
+    <wired-button>Fetch</wired-button>
+    <p-d on="click" if="wired-button" to="{href:target.input}"></p-d>
+    <ava-pwar></ava-pwar>
+    <p-d on="manifest-changed" to="xtal-json-editor{input};create-some-view-of-pwa-manifest-action{input}"></p-d>
+    <script type="module">
+      import { PDQ } from 'https://unpkg.com/p-d.p-u@0.0.62/PDQ.js?module';
+      const $ = PDQ.$; // strips html tags
+      PDQ.define('create-some-view-of-pwa-manifest-action', input => {
+        if (!input) return 'Click Fetch Button to see PWA info';
+        return /* html */`
+              <div class="simple">
+                <div class="iconLabel">Icon:</div>
+                <div class="icon"><img src="${input.icons ? input.url + input.icons[0].src : 'https://i.4pcdn.org/s4s/1510444672885s.jpg'}"/></div>
+                <div class="nameLabel">Name:</div>
+                <div class="name">${$(input.name)}</div>
+                <div class="shortNameLabel">Short Name:</div>
+                <div class="shortName">${$(input.short_name)}</div>
+              </div>
+              `;
+
+      });
+    </script>
 
     <!-- Polyfills needed for red(ge)tro browsers -->
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>

@@ -17,14 +17,17 @@ export class AvaPwarSimple extends AvaPwar{
 
     render(){
         const input = this._manifest;
+        
         const $ = this.$;
         if(!input.icons) return;
-        const oneNineTwoIcon = input.icons.find(icon => (icon.sizes.indexOf('192') > -1));
+        let oneNineTwoIcon = input.icons.find(icon => (icon.sizes.indexOf('192') > -1));
+        if(!oneNineTwoIcon) oneNineTwoIcon = input.icons[input.icons.length - 1];
+        const imgURL = oneNineTwoIcon.src.startsWith('http') ? oneNineTwoIcon.src : input.url + oneNineTwoIcon.src;
         const inverseColor = this.invertColor(input.background_color);
         this.innerHTML =  /* html */`
         <div class="simple" style="background-color:${input.background_color};color:${inverseColor}">
           <div class="iconLabel">Icon:</div>
-          <div class="icon"><img src="${input.url + oneNineTwoIcon.src}"/></div>
+          <div class="icon"><img height="192" width="192" src="${imgURL}"/></div>
           <div class="nameLabel">Name:</div>
           <div class="name">${$(input.name)}</div>
           <div class="shortNameLabel">Short Name:</div>
