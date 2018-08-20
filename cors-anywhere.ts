@@ -61,6 +61,9 @@ export abstract class CorsAnywhere extends XtallatX(HTMLElement){
     set title(val){
         this._title = val;
         this.attr(title, val);
+        // this.de(title,{
+        //     value: val
+        // })
     }
 
     static get observedAttributes() {
@@ -97,7 +100,11 @@ export abstract class CorsAnywhere extends XtallatX(HTMLElement){
 
     doFetch(){
         const url = this.calculateURL();
-        if(this._previousURL === url) return;
+        if(this._previousURL === url) {
+            this.fetchComplete = false;
+            this.fetchComplete = true;
+            return;
+        }
         this._previousURL = url;
         this.title = "Loading...";
         this.fetchInProgress = true;
