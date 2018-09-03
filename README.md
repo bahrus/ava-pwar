@@ -13,6 +13,10 @@ Web component that generates markup from manifest
 
     <ava-pwar-simple href="https://www.polymer-project.org/"></ava-pwar-simple>
 
+    <ava-pwar-simple href="https://stencilcomponents.com/"></ava-pwar-simple>
+
+    <ava-pwar-simple href="https://hnpwa.com/"></ava-pwar-simple>
+
     <ava-pwar-simple href="https://mobile.twitter.com/"></ava-pwar-simple> 
     
     <ava-pwar-simple href="https://www.cnet.com/"></ava-pwar-simple>
@@ -25,14 +29,7 @@ Web component that generates markup from manifest
 
     <ava-pwar-simple href="https://www.facturaelectronicagfa.mx/"></ava-pwar-simple>
 
-    <ava-pwar-simple href="https://volcano1.net/"></ava-pwar-simple>
-
-    <ava-pwar-simple href="https://www.tailorman.com/"></ava-pwar-simple>
-
     <ava-pwar-simple href="https://preactjs.com/"></ava-pwar-simple>
-
-
-
     
 
 <hr>
@@ -89,6 +86,9 @@ Web component that generates markup from manifest
         /* transition: 0.3s; */
       }
 
+      a, a:visited, a:hover, a:active {
+        color: inherit;
+      }
 
 
       /* On mouse-over, add a deeper shadow */
@@ -107,7 +107,7 @@ Web component that generates markup from manifest
     <!-- Polyfills needed for red(ge)tro browsers -->
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <!-- End Edge Dependency (sigh) -->
-    <script type="module" src="https://unpkg.com/ava-pwar@0.0.8/ava-pwar-simple.js?module"></script>
+    <script type="module" src="https://unpkg.com/ava-pwar@0.0.26/ava-pwar-simple.js?module"></script>
     <script type="module" src="https://unpkg.com/wired-button@0.7.0/wired-button.js?module"></script>
     <script type="module" src="https://unpkg.com/wired-input@0.6.6/wired-input.js?module"></script>
     <script type="module" src="https://unpkg.com/p-d.p-u@0.0.61/p-d-x.js?module"></script>

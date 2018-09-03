@@ -1,4 +1,5 @@
 import {AvaPwar} from './ava-pwar.js';
+import {define} from 'xtal-latx/define.js';
 
 /**
  * `ava-pwar-simple`
@@ -22,7 +23,9 @@ export class AvaPwarSimple extends AvaPwar{
         if(!input.icons) return;
         let oneNineTwoIcon = input.icons.find(icon => (icon.sizes.indexOf('192') > -1));
         if(!oneNineTwoIcon) oneNineTwoIcon = input.icons[input.icons.length - 1];
-        const imgURL = oneNineTwoIcon.src.startsWith('http') ? oneNineTwoIcon.src : input.url + oneNineTwoIcon.src;
+        let imagePath = oneNineTwoIcon.src;
+        if(imagePath.startsWith('/')) imagePath = imagePath.substring(1);
+        const imgURL = imagePath.startsWith('http') ? imagePath : input.url + imagePath;
         const inverseColor = this.invertColor(input.background_color);
         this.innerHTML =  /* html */`
         <div class="simple" style="background-color:${input.background_color};color:${inverseColor}">
@@ -66,4 +69,4 @@ export class AvaPwarSimple extends AvaPwar{
         return (zeros + str).slice(-len);
     }
 }
-if(!customElements.get(AvaPwarSimple.is)) customElements.define(AvaPwarSimple.is, AvaPwarSimple);
+define(AvaPwarSimple)
