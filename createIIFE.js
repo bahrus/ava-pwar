@@ -1,0 +1,2 @@
+const jiife = require('jiife');
+jiife.processFiles(['node_modules/xtal-latx/define.js','node_modules/xtal-latx/xtal-latx.js', 'cors-anywhere.js', 'ava-pwar.js', 'ava-pwar-simple.js'], 'ava-pwar.iife.js');

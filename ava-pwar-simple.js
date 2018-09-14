@@ -2,7 +2,7 @@ import { AvaPwar } from './ava-pwar.js';
 import { define } from 'xtal-latx/define.js';
 /**
  * `ava-pwar-simple`
- *  Web component wrapper around billboard.js charting library
+ *  Simple view of PWA Manifest
  *
  * @customElement
  * @polymer

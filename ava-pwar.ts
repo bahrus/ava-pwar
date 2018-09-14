@@ -1,8 +1,8 @@
 import { CorsAnywhere } from './cors-anywhere.js';
-
+import {define} from 'xtal-latx/define.js';
 /**
  * `ava-pwar`
- *  Web component wrapper around billboard.js charting library
+ *  Find and Process PWA Manifest url.
  *
  * @customElement
  * @polymer
@@ -15,7 +15,9 @@ export class AvaPwar extends CorsAnywhere {
         this.doFetch();
     }
     processResponse(resp: Response) {
+        const debug =  this.hasAttribute('debug');
         resp.text().then(content => {
+            if(debug) debugger; 
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(content, "text/html");
             const manifestLink = htmlDoc.querySelector('link[rel="manifest"]') as HTMLLinkElement;
@@ -25,16 +27,9 @@ export class AvaPwar extends CorsAnywhere {
             const path = location.href.split('/').slice(0, -1).join('/');
 
             //const lastPath = manifestLink.href.split('/').pop();
-            let manifestURL = manifestLink.href.replace(path, this.calculateURL());
-            manifestURL = manifestURL.replace(location.origin + '/', this.calculateURL());
-            // console.log({
-            //     manifesLinkhref: manifestLink.href,
-            //     location_origin: location.origin,
-            //     path: path,
-            //     url: this.calculateURL(),
-            //     manifestURL: manifestURL,
-            // })
-            // console.log(manifestURL);
+            let manifestURL = manifestLink.getAttribute('href');
+            const upLevels = manifestURL.startsWith('/') ? -1 : 0;
+            manifestURL = this.calculateURL(upLevels) + manifestURL;
             fetch(manifestURL).then(resp => {
                 resp.json().then(json => {
                     json.url = this._href;
@@ -56,6 +51,5 @@ export class AvaPwar extends CorsAnywhere {
     }
 
 }
-
-customElements.define(AvaPwar.is, AvaPwar);
+define(AvaPwar);
 

@@ -99,8 +99,15 @@ export class CorsAnywhere extends XtallatX(HTMLElement) {
             this.fetchComplete = true;
         });
     }
-    calculateURL() {
-        return this._serviceUrl + this._href;
+    calculateURL(upLevels = 0) {
+        let href = this._href;
+        if (upLevels) {
+            const split = href.split('/');
+            if (upLevels === -1) {
+                href = [split[0], split[1], split[2]].join('/');
+            }
+        }
+        return this._serviceUrl + href;
     }
 }
 //# sourceMappingURL=cors-anywhere.js.map

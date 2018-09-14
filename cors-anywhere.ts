@@ -1,6 +1,5 @@
 import { XtallatX } from 'xtal-latx/xtal-latx.js';
 
-
 const href = 'href';
 const service_url = 'service-url';
 const fetch_in_progress = 'fetch-in-progress';
@@ -118,7 +117,14 @@ export abstract class CorsAnywhere extends XtallatX(HTMLElement){
 
     abstract processResponse(resp: Response);
 
-    calculateURL(){
-        return this._serviceUrl + this._href;
+    calculateURL(upLevels = 0){
+        let href = this._href;
+        if(upLevels){
+            const split = href.split('/');
+            if(upLevels === -1){
+                href = [split[0], split[1], split[2]].join('/');
+            }
+        }
+        return this._serviceUrl + href;
     }
 }
