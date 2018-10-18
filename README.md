@@ -106,8 +106,7 @@ Web component that generates markup from manifest
     <!-- End Edge Dependency (sigh) -->
     <script type="module" src="https://unpkg.com/ava-pwar@0.0.13/ava-pwar-simple.js?module"></script>
     <!-- <script type="module" src="../ava-pwar-simple.js?module"></script> -->
-    <script type="module" src="https://unpkg.com/wired-button@0.7.0/wired-button.js?module"></script>
-    <script type="module" src="https://unpkg.com/wired-input@0.6.6/wired-input.js?module"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/wired-elements@0.8.2/dist/wired-elements.bundled.min.js"></script>
     <script type="module" src="https://unpkg.com/p-d.p-u@0.0.61/p-d.js?module"></script>
     <script type="module" src="https://unpkg.com/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
     <script type="module" src="https://unpkg.com/litter-g@0.0.12/litter-g.js?module"></script>
