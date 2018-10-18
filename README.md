@@ -101,15 +101,14 @@ Web component that generates markup from manifest
         margin-top:10px;
       }
     </style>
-    <!-- Polyfills needed for re(dge)tro browsers -->
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <!-- End Edge Dependency (sigh) -->
-    <script type="module" src="https://unpkg.com/ava-pwar@0.0.13/ava-pwar-simple.js?module"></script>
-    <!-- <script type="module" src="../ava-pwar-simple.js?module"></script> -->
+    <!-- Polyfills needed for retro browsers -->
+    <script src="https://cdn.jsdelivr.net/npm//@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <!-- End  Polyfills -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ava-pwar@0.0.13/ava-pwar.iife.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/wired-elements@0.8.2/dist/wired-elements.bundled.min.js"></script>
-    <script type="module" src="https://unpkg.com/p-d.p-u@0.0.61/p-d.js?module"></script>
-    <script type="module" src="https://unpkg.com/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
-    <script type="module" src="https://unpkg.com/litter-g@0.0.12/litter-g.js?module"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/p-d.p-u@0.0.69/p-d.p-u.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/litter-g@0.0.15/litter-g.iife.js"></script>
   </div>
   </template>
 </custom-element-demo>
