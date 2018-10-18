@@ -10,6 +10,7 @@ export class CorsAnywhere extends XtallatX(HTMLElement) {
         this._serviceUrl = 'https://cors-anywhere.herokuapp.com/';
         this._connected = false;
     }
+    // _serviceUrl: string = 'https://crossorigin.me/';
     /** @type {string} Url of service that gets preview.
     *
     */
@@ -93,7 +94,12 @@ export class CorsAnywhere extends XtallatX(HTMLElement) {
         this.title = "Loading...";
         this.fetchInProgress = true;
         this.fetchComplete = false;
-        fetch(url).then(response => {
+        fetch(url, {
+            headers: new Headers({
+                'Origin': this._href,
+            }),
+            mode: 'cors'
+        }).then(response => {
             this.fetchInProgress = false;
             this.processResponse(response);
             this.fetchComplete = true;

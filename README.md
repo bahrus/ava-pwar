@@ -104,7 +104,7 @@ Web component that generates markup from manifest
     <!-- Polyfills needed for re(dge)tro browsers -->
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <!-- End Edge Dependency (sigh) -->
-    <script type="module" src="https://unpkg.com/ava-pwar@0.0.12/ava-pwar-simple.js?module"></script>
+    <script type="module" src="https://unpkg.com/ava-pwar@0.0.13/ava-pwar-simple.js?module"></script>
     <!-- <script type="module" src="../ava-pwar-simple.js?module"></script> -->
     <script type="module" src="https://unpkg.com/wired-button@0.7.0/wired-button.js?module"></script>
     <script type="module" src="https://unpkg.com/wired-input@0.6.6/wired-input.js?module"></script>
