@@ -121,9 +121,15 @@ export abstract class CorsAnywhere extends XtallatX(HTMLElement){
         fetch(url, {
             signal: init,
         }).then(response => {
+            
             this.fetchInProgress = false;
             this.processResponse(response);
             this.fetchComplete = true;
+        }).catch(err => {
+            if (err.name === 'AbortError') {
+              console.log('Fetch aborted');
+              delete this._previousURL;
+            }
         })
     }
 

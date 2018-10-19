@@ -182,6 +182,11 @@ class CorsAnywhere extends XtallatX(HTMLElement) {
             this.fetchInProgress = false;
             this.processResponse(response);
             this.fetchComplete = true;
+        }).catch(err => {
+            if (err.name === 'AbortError') {
+                console.log('Fetch aborted');
+                delete this._previousURL;
+            }
         });
     }
     calculateURL(upLevels = 0) {
