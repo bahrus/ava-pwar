@@ -97,7 +97,11 @@ export abstract class CorsAnywhere extends XtallatX(HTMLElement){
     _previousURL: string;
 
     abstract onPropsChange();
+    _controller : AbortController;
 
+    set abort(val){
+        if(this._controller)this._controller.abort();
+    }
     doFetch(){
         const url = this.calculateURL();
         if(this._previousURL === url) {
@@ -109,11 +113,13 @@ export abstract class CorsAnywhere extends XtallatX(HTMLElement){
         this.title = "Loading...";
         this.fetchInProgress = true;
         this.fetchComplete = false;
+        let init : AbortSignal = null;
+        if(AbortController){
+            this._controller = new AbortController();
+            init = this._controller.signal;
+        }
         fetch(url, {
-            headers: new Headers({
-                'Origin': this._href,
-            }),
-            mode: 'cors'
+            signal: init,
         }).then(response => {
             this.fetchInProgress = false;
             this.processResponse(response);
