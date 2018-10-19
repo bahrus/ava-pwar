@@ -1,6 +1,10 @@
 # \<ava-pwar\>
 
-Web component that generates markup from manifest
+Web component that generates markup from manifest.
+
+NB:  One could argue that it would be more effective to implement this on the server, but what would be the fun of that?
+
+This uses the [cors anywhere proxy service](https://www.karolisram.com/cors-from-anywhere/), which seems to be suffering from over popularity, especially during peak hours EST.
 
 <!--
 ```
