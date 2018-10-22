@@ -1,4 +1,4 @@
-import { CorsAnywhere } from './cors-anywhere.js';
+import { CorsAnywhere } from 'xtal-latx/cors-anywhere.js';
 import { define } from 'xtal-latx/define.js';
 /**
  * `ava-pwar`
