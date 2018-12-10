@@ -3,14 +3,15 @@
   "version": "0.0.17",
   "description": "Web component that generates markup from manifest",
   "main": "ava-pwar.js",
+  "module": "ava-pwar.js",
   "repository": "https://github.com/bahrus/ava-pwar",
   "author": "bahrus <anderson.bruce.b@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "xtal-latx": "0.0.47"
+    "xtal-latx": "0.0.84"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "jiife": "^0.0.5"
+    "jiife": "^0.0.10"
   }
 }
