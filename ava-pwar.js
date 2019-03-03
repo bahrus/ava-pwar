@@ -1,5 +1,5 @@
-import { CorsAnywhere } from 'xtal-latx/cors-anywhere.js';
-import { define } from 'xtal-latx/define.js';
+import { CorsAnywhere } from 'xtal-element/cors-anywhere.js';
+import { define } from 'xtal-element/define.js';
 /**
  * `ava-pwar`
  *  Find and Process PWA Manifest url.
@@ -49,4 +49,3 @@ export class AvaPwar extends CorsAnywhere {
     }
 }
 define(AvaPwar);
-//# sourceMappingURL=ava-pwar.js.map
